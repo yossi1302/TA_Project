@@ -1,0 +1,21 @@
+<html>
+
+<head>
+    <title>Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+
+<body>
+    <form action="/home" method="POST">
+        <button class="btn"> Get Games </button> {% for game in games %}
+        <h2>{{ game.home_team.abbreviation}}: {{game.home_team_score}} - {{game.visitor_team_score}} :{{game.visitor_team.abbreviation}}</h2>
+        {% endfor %}
+    </form>
+    <a href="{{url_for('logout')}}" class="btn">Logout</a>
+</body>
+
+</html>
